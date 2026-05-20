@@ -1,0 +1,32 @@
+{
+  "grammars": [
+    {
+      "name": "reco",
+      "camelcase": "Reco",
+      "scope": "source.reco",
+      "path": ".",
+      "file-types": ["rco"],
+      "highlights": [],
+      "injection-regex": "^reco$"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Minimal tree-sitter grammar for reco (highlighter-only)",
+    "authors": [{"name": "Leo"}],
+    "links": {
+      "repository": "https://example.com/tree-sitter-reco"
+    }
+  },
+  "bindings": {
+    "c": false,
+    "go": false,
+    "node": false,
+    "python": false,
+    "rust": false,
+    "swift": false,
+    "kotlin": false,
+    "zig": false
+  }
+}

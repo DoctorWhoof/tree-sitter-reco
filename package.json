@@ -1,0 +1,10 @@
+{
+  "name": "tree-sitter-reco",
+  "version": "0.1.0",
+  "description": "Minimal tree-sitter grammar for reco — highlighter-only.",
+  "private": true,
+  "main": "grammar.js",
+  "scripts": {
+    "build": "tree-sitter generate && tree-sitter build --wasm -o ../zed-reco/grammars/reco.wasm"
+  }
+}
