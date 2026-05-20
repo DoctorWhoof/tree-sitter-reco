@@ -2,44 +2,6 @@
 
 Minimal tree-sitter grammar for reco — **highlighter-only**.
 
-## Why minimal?
-
-The grammar tokenizes reco source into keywords / identifiers /
-numbers / strings / comments / operators / punctuation, and stops
-there.  There's no parse tree for declarations, expressions, or
-statements.
-
-Reco syntax is still evolving.  A full grammar would have to be
-rewritten every time the language changes shape; this one just
-needs a line added/removed when keywords come and go.  When the
-language stabilises, this gets replaced with a proper grammar.
-
-What it gives you:
-- Comments, strings, numbers, keywords highlighted
-- Identifiers uniformly colored (no fn-vs-type-vs-var distinction)
-
-What it doesn't:
-- Outline view / fold-by-function
-- Scope-aware indent rules
-- Structure-aware navigation (Zed motions like "next function" etc.)
-
-## Editing the grammar
-
-When reco adds or removes a keyword:
-
-1. Edit `grammar.js` — add/remove the string in the `keyword` rule.
-2. Regenerate the parser + rebuild wasm:
-   ```sh
-   tree-sitter generate
-   tree-sitter build --wasm -o ../zed-reco/grammars/reco.wasm
-   ```
-   (Or `npm run build` if you prefer the script.)
-3. Commit `grammar.js`, the regenerated `src/parser.c`, AND the
-   new wasm.  The wasm being committed lets Zed install the
-   extension without users needing tree-sitter CLI.
-4. Restart the language server in Zed (cmd-shift-p → "language
-   server: restart") to pick up the new highlighting.
-
 ## Build dependencies
 
 - `tree-sitter` CLI (`brew install tree-sitter` or `npm install -g
